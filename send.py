@@ -1,16 +1,14 @@
 import smtplib
-from email.mime.text import MIMEText
+import secrets
+import calendar
+import time 
 
-with open(textfile) as fp:
-    msg = MIMEText(fp.read())
+fromaddr = secrets.fromaddress
+toaddr = secrets.toaddress
+smtpserv = secrets.smtpserver
+msg = "Test email datetime.date"
 
-#me == the sender's email address
-#you == the recipients email address
-msg['subject'] = 'The contents of %s' % textfile
-msg['From'] = me
-msg['To'] = you
-
-#send the message via our own SMTP server.
-s = smtplib.SMTP('localhost')
-s.send_message(msg)
-s.quit()
+server = smtplib.SMTP(smtpserv)
+server.set_debuglevel(1)
+server.sendmail(fromaddr, toaddr, msg)
+server.quit()
