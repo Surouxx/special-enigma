@@ -16,7 +16,7 @@ filename = 'sample.pdf'
 fp=open(smple.pdf, 'rb')
 att = email.mime.application.MIMEApplication(fp.read(),_subtype="pdf")
 fp.close()
-att.add_header('Content-Disposition','attachment,filename=%s'% filename)
+part.add_header('Content-Disposition','attachment,filename=%s'% filename)
 msg.attach(att)
 
 s = smtplib.SMTP('smtp.gmail.com')
