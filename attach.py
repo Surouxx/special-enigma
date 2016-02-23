@@ -13,7 +13,7 @@ body = email.mime.Text.MIMEText("""Do you want to play a game?\n (Y,n)""")
 msg.attach(body)
 
 filename = 'sample.pdf'
-fp=open(smple.pdf, 'rb')
+fp=open(sample.pdf, 'rb')
 att = email.mime.application.MIMEApplication(fp.read(),_subtype="pdf")
 fp.close()
 part.add_header('Content-Disposition','attachment,filename=%s'% filename)
