@@ -5,9 +5,9 @@ import email.mime.application
 import secrets
 
 msg = email.mime.Multipart.MIMEMultipart
-msg['Subject'] = 'Greeting'
-msg['From'] = secrets.smtplogusrname
-msg['To'] = secrets.toaddress
+msg.subject = 'Greeting'
+msg.From = secrets.smtplogusrname
+msg.To = secrets.toaddress
 
 body = email.mime.Text.MIMEText("""Do you want to play a game?\n (Y,n)""")
 msg.attach(body)
