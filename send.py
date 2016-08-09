@@ -10,12 +10,17 @@ try:
 except IndexError:
     print ("Error: Enter the from, to, subject, and msg body of the email to complete")
 
+print(mail_from)
+password = raw_input("Please type in your password to log into your email.\n")
+
 msg = "From: {} To: {} Subject: {} {}".format(mail_from, mail_to,
     subject_line, msg_body)
- 
-server = smtplib.SMTP_SSL(secret.server)
+
+server = 'smtp.gmail.com'
+
+server = smtplib.SMTP_SSL(server)
 server.set_debuglevel(1)
-server.login(secret.username, secret.password)
-server.sendmail(secret.fromaddr, secret.toaddr, msg)
+server.login(mail_from, password)
+server.sendmail(mail_from, mail_to, msg)
 server.quit()
 
