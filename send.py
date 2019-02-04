@@ -23,4 +23,3 @@ server.set_debuglevel(1)
 server.login(mail_from, password)
 server.sendmail(mail_from, mail_to, msg)
 server.quit()
-
